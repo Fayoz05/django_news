@@ -12,10 +12,11 @@ class CategoryModel(models.Model):
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
-class News(models.Model):
+class TextNews(models.Model):
     news_title = models.CharField(max_length=100)
-    news_text = models.CharField
     category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE)
+    description = models.TextField(default='')
+    image = models.FileField(upload_to='news_images')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
