@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import CategoryModel, TextNews
+from .models import CategoryModel, TextNews, MyUserModel
 
 
 @admin.register(CategoryModel)
@@ -16,3 +16,9 @@ class NewsModelAdmin(admin.ModelAdmin):
     list_filter = ['created_at']
     list_display = ['id','news_title','created_at']
     ordering = ['id',]
+
+@admin.register(MyUserModel)
+class MyUserModelAdmin(admin.ModelAdmin):
+    search_fields = ['username','id']
+    list_display = ['username','id','phone_number','email']
+    ordering = ['id']

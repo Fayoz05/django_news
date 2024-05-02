@@ -19,11 +19,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from text.views import home_page
+from text.views import home_page, MyFormView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_page)
+    path('', home_page),
+    path('register', MyFormView.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
